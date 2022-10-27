@@ -1,4 +1,4 @@
-import './Loading.css'
+import "./Loading.css";
 
 /**Loading component
  * Props: none
@@ -8,9 +8,13 @@ import './Loading.css'
 
 function Loading() {
   return (
-    <div className="Loading" role="status">
-      <span className="sr-only spinner-border Loading"></span>
-      <span>Loading...</span>
+    <div className="Loading container d-flex justify-content-center" role="status">
+      <div className="container d-flex justify-content-center">
+        <div>
+          <span className="sr-only spinner-border Loading text-light"></span>
+          <span className="text-light">Loading...</span>
+        </div>
+      </div>
     </div>
   );
 }
