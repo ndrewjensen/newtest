@@ -10,7 +10,7 @@ import Loading from "../Loading/Loading";
  * Props: updateUser() to call in App
  * State: formData, updateStatus
  * RoutesList -> Profile
-*/
+ */
 
 function Profile({ updateUser }) {
   const { username, user } = useContext(userContext);
@@ -20,12 +20,11 @@ function Profile({ updateUser }) {
   });
   const [updateStatus, setUpdateStatus] = useState({
     success: false,
-    errors: []
+    errors: [],
   });
 
-  
   if (!username) return <Navigate to={"/"} />;
-  
+
   /** Update form input. */
 
   function handleChange(evt) {
@@ -52,71 +51,76 @@ function Profile({ updateUser }) {
       await updateUser(json);
       setUpdateStatus({
         success: <p className="Profile-success">Updated Successfully</p>,
-        errors: []
+        errors: [],
       });
     } catch (err) {
       setUpdateStatus({
         success: false,
-        errors: err
+        errors: err,
       });
     }
   }
 
   return (
-    <div className="Profile">
-      <form onSubmit={handleSubmit}>
-        <div className="form-control">
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            disabled={true}
-            name="username"
-            onChange={handleChange}
-            value={formData.data.user.username || ""}
-            aria-label="username"
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="firstName">First Name</label>
-          <input
-            id="firstName"
-            name="firstName"
-            onChange={handleChange}
-            value={formData.data.user.firstName || ""}
-            aria-label="first name"
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            id="lastName"
-            name="lastName"
-            onChange={handleChange}
-            value={formData.data.user.lastName || ""}
-            aria-label="last name"
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            onChange={handleChange}
-            value={formData.data.user.email || ""}
-            aria-label="email"
-          />
-        </div>
+    <div className="Profile container d-flex justify-content-center">
+      <div className="card p-3 col-6 border border-secondary">
+        <form onSubmit={handleSubmit}>
+          <div className="form-control">
+            <label htmlFor="username">Username</label>
+            <input
+              id="username"
+              disabled={true}
+              name="username"
+              onChange={handleChange}
+              value={formData.data.user.username || ""}
+              aria-label="username"
+            />
+          </div>
+          <div className="form-control">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              id="firstName"
+              name="firstName"
+              onChange={handleChange}
+              value={formData.data.user.firstName || ""}
+              aria-label="first name"
+            />
+          </div>
+          <div className="form-control">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              id="lastName"
+              name="lastName"
+              onChange={handleChange}
+              value={formData.data.user.lastName || ""}
+              aria-label="last name"
+            />
+          </div>
+          <div className="form-control">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              onChange={handleChange}
+              value={formData.data.user.email || ""}
+              aria-label="email"
+            />
+          </div>
 
-        {updateStatus.success}
-        {updateStatus.errors &&
-          <div className="Profile-err">
-            {updateStatus.errors.map(error => <p key={error}>{error}</p>)}
-          </div>}
+          {updateStatus.success}
+          {updateStatus.errors && (
+            <div className="Profile-err">
+              {updateStatus.errors.map((error) => (
+                <p key={error}>{error}</p>
+              ))}
+            </div>
+          )}
 
-        <button className="btn-primary btn Profile-btn form-text col">
-          Save Changes
-        </button>
-      </form>
+          <button className="btn-primary btn Profile-btn form-text col">
+            Save Changes
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

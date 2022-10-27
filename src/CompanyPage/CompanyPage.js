@@ -34,9 +34,11 @@ function CompanyPage() {
   if (company.isLoading) return <Loading />;
 
   return (
-    <div className="CompanyPage">
-      <h3>{company.data.name}</h3>
-      <p>{company.data.description}</p>
+    <div className="CompanyPage container">
+      <div className="card c-12 bg-secondary border border-light text-light">
+        <h3 className="mt-1">{company.data.name}</h3>
+        <p>{company.data.description}</p>
+      </div>
       <JobsList jobs={company.data.jobs} />
     </div>
   );

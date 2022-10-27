@@ -17,7 +17,7 @@ function Nav({ logOut }) {
   }
 
   return (
-    <nav className="nav container">
+    <nav className="nav container sticky-top">
       <div className="navbar navbar-light bg-light vw-100 border border-secondary border-3 rounded">
         <div className="nav-home">
           <NavLink classname="navbar-brand" to="/" end>

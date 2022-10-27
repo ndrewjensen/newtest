@@ -22,7 +22,7 @@ function Homepage() {
 
   return (
     <div className="Homepage container d-flex justify-content-center">
-      <div className="card col-4 col-12-small d-flex justify-content-center border border-3 border-secondary">
+      <div className="card col-6 col-12-small d-flex justify-content-center border border-3 border-secondary">
       <h1 className="mt-3">JOBLY</h1>
       <p className="mb-1">All the jobs in one, convenient place.</p>
       {username ? (

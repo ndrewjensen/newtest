@@ -25,21 +25,23 @@ function SearchForm({ search }) {
   }
 
   return (
-    <div className="SearchForm row">
+    <div className="SearchForm container d-flex justify-content-center">
+      <div className="col-9 col-12-small">
       <form onSubmit={handleSubmit}>
         <input
           id="search-term"
           name="searchTerm"
-          className="form-control col"
+          className="form-control col border border-3 border-secondary"
           placeholder="Enter search term.."
           onChange={handleChange}
           value={formData.searchTerm || ""}
           aria-label="enter search term"
-        />
+          />
         <button className="btn-primary btn SearchForm-btn form-text col">
           Submit
         </button>
       </form>
+          </div>
     </div>
   );
 }
